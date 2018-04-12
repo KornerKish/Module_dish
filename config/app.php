@@ -182,6 +182,9 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+
+        //laravel-multiselect
+        AndreChalom\LaravelMultiselect\MultiselectServiceProvider::class,
     ],
 
     /*
@@ -236,6 +239,8 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 
+        //laravel-multiselect
+        'Multiselect' => AndreChalom\LaravelMultiselect\MultiselectFacade::class,
     ],
 
 ];

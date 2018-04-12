@@ -4631,7 +4631,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Extract the trailing name component from a file path.
+         * Extract the trailing name components from a file path.
          *
          * @param string $path
          * @return string 
@@ -7747,7 +7747,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Returns the path as relative reference from the current Request path.
          * 
-         * Only the URIs path component (no schema, host etc.) is relevant and must be given.
+         * Only the URIs path components (no schema, host etc.) is relevant and must be given.
          * Both paths must be absolute and not contain relative parts.
          * Relative URLs from one resource to another are useful when generating self-contained downloadable document archives.
          * Furthermore, they can be used to reduce the link size in documents.
@@ -11878,7 +11878,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Start a component rendering process.
+         * Start a components rendering process.
          *
          * @param string $name
          * @param array $data
@@ -11891,7 +11891,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Render the current component.
+         * Render the current components.
          *
          * @return string 
          * @static 
