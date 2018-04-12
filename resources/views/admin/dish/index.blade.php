@@ -45,7 +45,7 @@
                             <td class="text-right">
                                 <form onsubmit="if(confirm('Удалить?'))
                         {return true}else{return false}"
-                                      action="#{{route('admin.dish.destroy', $dish)}}"
+                                      action="{{route('admin.dish.destroy', $dish)}}"
                                       method="post">
                                     <input type="hidden" name="_method" value="DELETE">
                                     {{csrf_field()}}

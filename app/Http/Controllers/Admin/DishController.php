@@ -85,16 +85,10 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        return view('admin.dish.edit',[
-            'dish' => $dish,
-            'ingredients'=> Ingredient::all(),
+        return view('admin.dish.edit', [
+            'dish'        => $dish,
+            'ingredients' => Ingredient::all(),
         ]);
-
-        /*return view('admin.articles.edit',[
-            'article' => $article,
-            'categories' => Category::with('children')->where('parent_id', '0')->get(),
-            'delimiter'  => ''
-        ]);*/
     }
 
     /**
@@ -106,7 +100,22 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        //
+        $massage = [
+            'min'    => 'Выберете минимум 2 ингрединета',
+            'max'    => 'Выберете максимум 5 ингредиентов',
+        ];
+        $this->validate($request, [
+            'ingredients' => 'array|min:2|max:5',
+        ], $massage);
+
+        $dish->update($request->all());
+
+        $dish->ingredients()->detach();
+        if ($request->input('ingredients')):
+            $dish->ingredients()->attach($request->input('ingredients'));
+        endif;
+
+        return redirect()->route('admin.dish.index');
     }
 
     /**
@@ -117,6 +126,9 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        //
+        $dish->ingredients()->detach();
+        $dish->delete();
+
+        return redirect()->route('admin.dish.index');
     }
 }

@@ -23,13 +23,24 @@
 
 <label for="ingredients">Ингредиенты</label>
 <select class="form-control" name="ingredients[]" id="ingredients" multiple="" size="4">
+
     @foreach($ingredients as $ingredient)
-        {{--@foreach($dish->ingredient as $ingred)--}}
-            <option value="{{$ingredient->id}}"
-            {{--@if ($ingredient->id==$ingred->id) selected @endif--}}
-            @if(old('ingredients')) selected @endif>{{$ingredient->name}}</option>
-        {{--@endforeach--}}
+
+        <option value="{{$ingredient->id or ""}}"
+                @isset($dish->id)
+                    @foreach($dish->ingredients as $ingredient_dish)
+                        @if ($ingredient->id==$ingredient_dish->id)
+                            selected="selected"
+                        @endif
+                    @endforeach
+                @endisset
+                @if(old('ingredients')) selected="selected" @endif
+                >
+            {{$ingredient->name}}
+        </option>
+
     @endforeach
+
 </select>
 
 <hr/>
