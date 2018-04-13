@@ -25,5 +25,5 @@ Route::group(['prefix'     => 'admin',
     function () {
         Route::resource('/ingredient', 'IngredientController', ['as'=>'admin']);
         Route::resource('/dish', 'DishController', ['as'=>'admin']);
-     /*Route::get('/', 'AdminPanelController@index');*/
+        Route::get('/', 'AdminPanelController@adminPanel')->name('admin.index');
     });
