@@ -10,7 +10,7 @@
 
         <hr/>
         <div class="row">
-            <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
                 <a href="{{route('admin.dish.create')}}" class="btn btn-primary pull-right">
                     <i class="far fa-plus-square"> Создать блюдо</i>
                 </a>
@@ -27,19 +27,31 @@
                             <td>{{$dish->name}}</td>
                             <td class="text-left">
                                 <ul>
-                                @foreach($dish->ingredients as $ingredient)
-                                    <li>
-                                        {{$ingredient->name}}
-                                    </li>
-                                @endforeach
+                                    @foreach($dish->ingredients as $ingredient)
+                                        <li>
+                                            {{$ingredient->name}}
+                                        </li>
+                                    @endforeach
                                 </ul>
-
-
                             </td>
                             <td>
                                 {{--Активность--}}
-                                {{--<i class='fa fa-plus' aria-hidden="true"></i>
-                               <i class='fa fa-minus' aria-hidden="true"></i>--}}
+                                <li>
+                                    <i class="fa
+                                    @foreach($dish->ingredients as $ingredient)
+                                    @if ($ingredient->active==0)
+                                            fa-minus
+                                        @break
+                                    @endif
+                                    @if ($loop->last)
+                                            fa-plus
+                                    @endif
+                                    @endforeach
+                                            "
+                                       aria-hidden="true"></i>
+                                </li>
+
+
                             </td>
                             <td class="text-right">
                                 <form onsubmit="if(confirm('Удалить?'))

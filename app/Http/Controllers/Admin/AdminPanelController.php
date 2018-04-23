@@ -11,10 +11,13 @@ class AdminPanelController extends Controller
     public function adminPanel()
     {
         return view('admin.admin_panel', [
-            'ingredients'       => Ingredient::lastIngredients(5),
-            'dishes'            => Dish::lastDishes(5),
-            'count_ingredients' => Ingredient::count(),
-            'count_dishes'      => Dish::count(),
+            'ingredients'              => Ingredient::lastIngredients(7),
+            'count_all_ingredients'    => Ingredient::count(),
+            'count_active_ingredients' => Ingredient::activeIngredients()->count(),
+
+            'dishes'                   => Dish::lastDishes(7),
+            'count_all_dishes'         => Dish::count(),
+            'count_active_dishes'      => Dish::activeDishes(),
         ]);
     }
 }

@@ -17,4 +17,8 @@ class Ingredient extends Model
     {
         return $query->orderBy('created_at', 'desc')->take($count)->get();
     }
+
+    public function scopeActiveIngredients($query){
+        return $query->where('active', 1)->get();
+    }
 }

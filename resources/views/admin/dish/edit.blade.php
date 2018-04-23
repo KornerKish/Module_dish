@@ -12,7 +12,7 @@
 
         <hr/>
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-8 col-md-offset-2">
                 <form class="form-horizontal" action="{{route('admin.dish.update', $dish)}}" method="post">
                     <input type="hidden" name="_method" value="put">
                     {{ csrf_field() }}

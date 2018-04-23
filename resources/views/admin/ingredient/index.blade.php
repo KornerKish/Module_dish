@@ -11,7 +11,7 @@
 
         <hr/>
         <div class="row">
-            <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
                 <a href="{{route('admin.ingredient.create')}}" class="btn btn-primary pull-right">
                     <i class="far fa-plus-square"> Создать ингредиент</i>
                 </a>
