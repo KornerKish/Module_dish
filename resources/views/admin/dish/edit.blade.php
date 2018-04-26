@@ -4,10 +4,10 @@
 
     <div class="container">
 
-        @component('admin.components.breadcrumb')
+        @component('admin.components.breadcrumb_edit')
         @slot('title') Редактирование блюда @endslot
-        @slot('parent') Главная @endslot
-        @slot('active') Блюдо @endslot
+        @slot('item')<a href="{{route('admin.dish.index')}}"> Блюда </a>@endslot
+        @slot('active') {{$dish->name}} @endslot
         @endcomponent
 
         <hr/>

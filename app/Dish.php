@@ -27,3 +27,5 @@ class Dish extends Model
         return $query->where('active', 1)->get();
     }
 }
+
+

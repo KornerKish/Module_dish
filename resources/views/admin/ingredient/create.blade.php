@@ -6,8 +6,7 @@
 
         @component('admin.components.breadcrumb')
         @slot('title') Создание Ингредиента @endslot
-        @slot('parent') Главная @endslot
-        @slot('active') Ингредиенты @endslot
+        @slot('active') <a href="{{route('admin.ingredient.index')}}"> Ингредиенты </a> @endslot
         @endcomponent
 
         <hr/>

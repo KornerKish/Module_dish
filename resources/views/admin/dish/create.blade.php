@@ -6,8 +6,7 @@
 
         @component('admin.components.breadcrumb')
         @slot('title') Создание блюда @endslot
-        @slot('parent') Главная @endslot
-        @slot('active') Блюда @endslot
+        @slot('active') <a href="{{route('admin.dish.index')}}"> Блюда </a> @endslot
         @endcomponent
 
         <hr/>

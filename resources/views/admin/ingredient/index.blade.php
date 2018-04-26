@@ -5,7 +5,6 @@
     <div class="container">
         @component('admin.components.breadcrumb')
         @slot('title') Список ингредиентов @endslot
-        @slot('parent') Панель администратора @endslot
         @slot('active') Ингредиенты @endslot
         @endcomponent
 

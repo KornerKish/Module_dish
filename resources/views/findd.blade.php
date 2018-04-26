@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
     <div class="container">
         <div class="row">
             <a href="{{route('index')}}">
@@ -18,6 +16,7 @@
                                     @foreach ($ingredients_ids as $ingredients_id)
                                     @if ($ingredient->id==$ingredients_id)
                                     selected="selected"
+                                    @else
                                     disabled
                                     @endif
                                     @endforeach
@@ -29,22 +28,21 @@
                 </form>
             </div>
 
-
             <div class="col-sm-3">
-                <label for="ingredients">Найденные ингредиенты:</label>
-                @forelse($dishes_ingredients as $dish)
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">{{$dish->name}}</h4>
-                    </a>
-
-                @empty
+                <label for="ingredients">Найденные блюда:</label>
+                @if(!empty($dishes_ingredients))
+                    @foreach($dishes_ingredients as $dish)
+                        <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">{{$dish->name}}</h4>
+                        </a>
+                    @endforeach
+                @else
                     <a href="#" class="list-group-item alert-warning">
                         <h4 class="list-group-item-heading text-center">Ничего не найдено</h4>
                     </a>
-                @endforelse
+                @endif
             </div>
             <div class="col-sm-3"></div>
         </div>
     </div>
-
 @stop
