@@ -1,0 +1,47 @@
+[33mcommit 33766bd72e5b66bfcf875ca3880764b816d70ce0[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Korner <KornerKoren@gmail.com>
+Date:   Thu Apr 26 15:51:11 2018 +0300
+
+    Module_dish update
+
+[33mcommit 0a708ba9662b8f6b2a6c1de344ea2381111905d6[m
+Author: Korner <KornerKoren@gmail.com>
+Date:   Thu Apr 26 15:39:03 2018 +0300
+
+    Module_dish update
+
+[33mcommit d2b82a403577526d272ab931090e2a890e0b9b05[m
+Author: Korner <KornerKoren@gmail.com>
+Date:   Thu Apr 26 09:52:21 2018 +0300
+
+    Module_dish user find
+
+[33mcommit 96d02a90caf32553f2c8085ad07bb2db92952985[m
+Author: Korner <KornerKoren@gmail.com>
+Date:   Mon Apr 23 09:03:19 2018 +0300
+
+    AdminPanel update
+
+[33mcommit bbf91d3da45c2748f047f517709f1c660b4626e4[m
+Author: Korner <KornerKoren@gmail.com>
+Date:   Fri Apr 13 11:06:41 2018 +0300
+
+    AdminPanel
+
+[33mcommit b5f0b1882882c5949726f6f5b3cce4a7227a1439[m
+Author: Korner <KornerKoren@gmail.com>
+Date:   Thu Apr 12 14:22:37 2018 +0300
+
+    CRUD dishes
+
+[33mcommit 6a8625580857586d803615db39004595e172a69f[m
+Author: Korner <KornerKoren@gmail.com>
+Date:   Thu Apr 12 08:44:24 2018 +0300
+
+    CRUD ingredient
+
+[33mcommit b35d2888a0fb0e9f4266ab68e21d99a0fe8d0ddb[m
+Author: Korner <KornerKoren@gmail.com>
+Date:   Tue Mar 20 15:51:37 2018 +0200
+
+    Init module_dish
