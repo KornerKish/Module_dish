@@ -17,13 +17,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'ModuleDishController@index', ['as' => 'user'])->name('index');
+Route::post('/', 'ModuleDishController@find', ['as' => 'user'])->name('find');
+Route::get('/findd', 'ModuleDishController@find', ['as' => 'user'])->name('findd');
 
 Route::group(['prefix'     => 'admin',
               'namespace'  => 'Admin',
               'middleware' => ['auth']],
     function () {
-        Route::resource('/ingredient', 'IngredientController', ['as'=>'admin']);
-        Route::resource('/dish', 'DishController', ['as'=>'admin']);
+        Route::resource('/ingredient', 'IngredientController', ['as' => 'admin']);
+        Route::resource('/dish', 'DishController', ['as' => 'admin']);
         Route::get('/', 'AdminPanelController@adminPanel')->name('admin.index');
     });

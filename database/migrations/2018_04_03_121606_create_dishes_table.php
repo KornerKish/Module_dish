@@ -17,6 +17,7 @@ class CreateDishesTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->longText('recipe');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

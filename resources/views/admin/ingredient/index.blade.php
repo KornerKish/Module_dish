@@ -18,7 +18,7 @@
                 <table class="table table-striped">
                     <thead>
                     <th>Наименование ингредиента</th>
-                    <th>Активность</th>
+                    <th class="text-center">Активность</th>
                     <th class="text-right">Действия</th>
                     </thead>
                     <tbody>

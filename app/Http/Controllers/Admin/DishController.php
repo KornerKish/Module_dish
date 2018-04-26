@@ -46,7 +46,7 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        $massage = [
+        $message = [
             'unique' => 'Блюдо с таким названием уже существует, введите другое название',
             'min'    => 'Выберете минимум 2 ингрединета',
             'max'    => 'Выберете максимум 5 ингредиентов',
@@ -54,9 +54,19 @@ class DishController extends Controller
         $this->validate($request, [
             'name'        => 'required|string|max:50|unique:dishes',
             'ingredients' => 'array|min:2|max:5',
-        ], $massage);
+        ], $message);
 
-        $dish = Dish::create($request->all());
+        $ingredients = Ingredient::find($request->input('ingredients'))->pluck('active');
+        foreach ($ingredients as $ingredient) {
+            $active = 1;
+            if ($ingredient == 0) {
+                $active = 0;
+                break;
+            }
+        }
+        $dish_req           = $request->all();
+        $dish_req['active'] = $active;
+        $dish               = Dish::create($dish_req);
 
         //Categories
         if ($request->input('ingredients')):
@@ -101,14 +111,26 @@ class DishController extends Controller
     public function update(Request $request, Dish $dish)
     {
         $massage = [
-            'min'    => 'Выберете минимум 2 ингрединета',
-            'max'    => 'Выберете максимум 5 ингредиентов',
+            'min' => 'Выберете минимум 2 ингрединета',
+            'max' => 'Выберете максимум 5 ингредиентов',
         ];
         $this->validate($request, [
             'ingredients' => 'array|min:2|max:5',
         ], $massage);
 
-        $dish->update($request->all());
+        $ingredients = Ingredient::find($request->input('ingredients'))->pluck('active');
+
+        foreach ($ingredients as $ingredient) {
+            $active = 1;
+            if ($ingredient == 0) {
+                $active = 0;
+                break;
+            }
+        }
+        $dish_req           = $request->all();
+        $dish_req['active'] = $active;
+
+        $dish->update($dish_req);
 
         $dish->ingredients()->detach();
         if ($request->input('ingredients')):

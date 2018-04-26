@@ -18,7 +18,7 @@
                     <thead>
                     <th>Наименование блюда</th>
                     <th>Ингредиенты</th>
-                    <th>Активность</th>
+                    <th class="text-center">Активность</th>
                     <th class="text-right">Действия</th>
                     </thead>
                     <tbody>
@@ -34,23 +34,18 @@
                                     @endforeach
                                 </ul>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 {{--Активность--}}
-                                <li>
-                                    <i class="fa
-                                    @foreach($dish->ingredients as $ingredient)
-                                    @if ($ingredient->active==0)
-                                            fa-minus
-                                        @break
-                                    @endif
-                                    @if ($loop->last)
-                                            fa-plus
-                                    @endif
-                                    @endforeach
-                                            "
-                                       aria-hidden="true"></i>
-                                </li>
+                                <i class="fa
 
+                                @if ($dish->active==0)
+                                        fa-minus
+                                @elseif ($dish->active==1)
+                                        fa-plus
+                                @endif
+
+                                        "
+                                   aria-hidden="true"></i>
 
                             </td>
                             <td class="text-right">

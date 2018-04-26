@@ -17,7 +17,7 @@ class AdminPanelController extends Controller
 
             'dishes'                   => Dish::lastDishes(7),
             'count_all_dishes'         => Dish::count(),
-            'count_active_dishes'      => Dish::activeDishes(),
+            'count_active_dishes'      => Dish::activeDishes()->count(),
         ]);
     }
 }

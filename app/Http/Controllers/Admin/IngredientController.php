@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Dish;
 use App\Http\Controllers\Controller;
 use App\Ingredient;
 use Illuminate\Http\Request;
@@ -83,6 +84,30 @@ class IngredientController extends Controller
     public function update(Request $request, Ingredient $ingredient)
     {
         $ingredient->update($request->all());
+
+        $ingredient_name = $request->input('name');
+        $ingredient_id   = Ingredient::all()->where('name', $ingredient_name)->first();
+        $ingredient_id   = $ingredient_id->id;
+        //поиск блюд которіе включают отредактированный ингредиент
+        $dishes = Dish::whereHas('ingredients', function ($q) use ($ingredient_id) {
+            $q->where('id', $ingredient_id);
+        })->get();
+        //перебор ингредиентов каждого блюда и определение активности блюда
+        foreach ($dishes as $dish) {
+            foreach ($dish->ingredients as $ingredient) {
+                $active = 1;
+                if ($ingredient->active == 0) {
+                    $active = 0;
+                    break;
+                }
+            }
+            //внесение изменений в базу данных активности блюда
+            $dish_req[]         = $dish;
+            $dish_req['active'] = $active;
+
+            $dish->update($dish_req);
+        }
+
         return redirect()->route('admin.ingredient.index');
     }
 
