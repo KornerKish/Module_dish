@@ -9,7 +9,7 @@
 
             <div class="col-sm-3 col-sm-offset-3">
                 <form class="form-horizontal center-block">
-                    <label for="ingredients">Выбрать ингредиенты:</label>
+                    <label for="ingredients">Выбранные ингредиенты:</label>
                     <select class="form-control" name="ingredients[]" id="ingredients" multiple="" size="15">
                         @foreach($active_ingredients as $ingredient)
                             <option value="{{$ingredient->id or ""}}"
@@ -33,7 +33,7 @@
                 @if(!empty($dishes_ingredients))
                     @foreach($dishes_ingredients as $dish)
                         <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">{{$dish->name}}</h4>
+                            <h4 class="list-group-item-heading text-center">{{$dish->name}}</h4>
                         </a>
                     @endforeach
                 @else
